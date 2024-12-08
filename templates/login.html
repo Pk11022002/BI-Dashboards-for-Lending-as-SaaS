@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #cadfe1; /* Light peacock background colour */
+            font-family: sans-serif;
+        }
+        .header {
+            width: 100%;
+            background-color: #2462a4;
+            color: #fff;
+            padding: 20px 0; /* Adjust padding as needed */
+            text-align: center;
+            background-image: url("/static/fintaar.svg"); /* Replace "logo.png" with the path to your logo image */
+            background-repeat: no-repeat;
+            background-size: 200px auto; /* Adjust background size as needed */
+            background-position: top left; /* Align background image to the top left */
+        }
+        .header h1 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add 3D text effect */
+        }
+        .login-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80%; /* Adjust height as needed */
+        }
+        .login-form {
+            width: 300px; /* Adjust width as needed */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #2462a4; /* Same as header strip color */
+            color: #fff; /* Text color */
+        }
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff; /* Label text color */
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 22px); /* Adjust width and subtract padding */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            color: #000; /* Input text color */
+            margin-bottom: 10px; /* Add margin bottom */
+        }
+        input[type="submit"] {
+            width: calc(100% - 22px); /* Adjust width and subtract padding */
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #8ee5ee; /* Slightly darker blue button color */
+            color: #000;
+            cursor: pointer;
+            margin-bottom: 10px; /* Add margin bottom */
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background-color: #004080; /* Darker blue on hover */
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Unlock Insights, Drive Decisions</h1>
+    </div>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Enter your login details</h2>
+            <form method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <input type="submit" value="Login">
+            </form>
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
